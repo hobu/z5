@@ -47,7 +47,7 @@ namespace util {
         // N5-Axis order: we need to reverse the chunk shape written to the header
         std::reverse(shapeOut.begin(), shapeOut.end());
         // write chunk shape to header
-        for(int d = 0; d < ndim; ++d) {
+        for(unsigned d = 0; d < ndim; ++d) {
             memcpy(&buffer[(1 + d) * 4], &shapeOut[d], 4);
         }
 

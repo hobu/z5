@@ -46,7 +46,7 @@ namespace z5 {
             if(offset.size() != shape_.size() || shape.size() != shape_.size()) {
                 throw std::runtime_error("Request has wrong dimension");
             }
-            for(int d = 0; d < shape_.size(); ++d) {
+            for(size_t d = 0; d < shape_.size(); ++d) {
                 if(offset[d] + shape[d] > shape_[d]) {
                     std::cout << "Out of range: " << offset << " + " << shape << std::endl;
                     std::cout << " = " << offset[d] + shape[d] << " > " << shape_[d] << std::endl;;

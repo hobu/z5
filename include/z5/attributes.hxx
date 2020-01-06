@@ -2,6 +2,7 @@
 
 #include "z5/handle.hxx"
 #include "z5/filesystem/attributes.hxx"
+#include "z5/attributes.hxx"
 
 #ifdef WITH_S3
 #include "z5/s3/attributes.hxx"

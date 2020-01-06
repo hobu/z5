@@ -222,6 +222,7 @@ namespace z5 {
         // make sure that fixed metadata values agree
         void checkJson(const nlohmann::json & j) {
 
+            std::cerr << "checkjson: " << j << std::endl;
             // check if order exists and check for the correct value
             auto jIt = j.find("order");
             if(jIt != j.end()) {

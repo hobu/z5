@@ -23,16 +23,16 @@ namespace z5 {
         });
 
         m.def("remove_attribute", [](const OBJECT & g, const std::string & key) {
-            removeAttribute(g, key);
+//             removeAttribute(g, key);
         });
     }
 
 
     void exportAttributes(py::module & m) {
 
-        exportAttributesT<filesystem::handle::File>(m);
-        exportAttributesT<filesystem::handle::Group>(m);
-        exportAttributesT<filesystem::handle::Dataset>(m);
+//         exportAttributesT<handle::File>(m);
+//         exportAttributesT<handle::Group>(m);
+//         exportAttributesT<handle::Dataset>(m);
 
         #ifdef WITH_S3
         exportAttributesT<s3::handle::File>(m);

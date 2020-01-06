@@ -77,11 +77,12 @@ namespace handle {
         Chunk(const types::ShapeType & chunkIndices,
               const types::ShapeType & defaultShape,
               const types::ShapeType & datasetShape,
-              const FileMode mode) : chunkIndices_(chunkIndices),
+              const FileMode mode) : Handle(mode),
+                                     chunkIndices_(chunkIndices),
                                      defaultShape_(defaultShape),
                                      datasetShape_(datasetShape),
-                                     boundedShape_(computeBoundedShape()),
-                                     Handle(mode){}
+                                     boundedShape_(computeBoundedShape())
+                                     {}
         virtual ~Chunk() {}
 
         // expose relevant part of the derived's class API
@@ -166,7 +167,7 @@ namespace handle {
     inline bool hasAllN5DatasetAttributes(nlohmann::json & j) {
         const std::set<std::string> protectedAttributes = {"dimensions", "blockSize", "dataType",
                                                            "compressionType", "compression"};
-        int nFound = 0;
+        size_t nFound = 0;
         for(auto jIt = j.begin(); jIt != j.end(); ++jIt) {
             if(protectedAttributes.find(jIt.key()) != protectedAttributes.end()) {
                 ++nFound;

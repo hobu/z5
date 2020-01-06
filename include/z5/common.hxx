@@ -44,15 +44,6 @@
     // osx < 10.15 right now. For now the workaround is to use boost filesystem ...
     // TODO MSVC check ?
     #if (defined(__GNUC__) && (__GNUC__ > 7)) || defined(__clang__) || (defined(_MSC_VER) && _MSC_VER > 1900)
-        #include <filesystem>
-        namespace fs = std::filesystem;
-
-        // need to be consistent with the other implementations
-        inline fs::path relativeImpl(const fs::path & from, const fs::path & to){
-            return fs::relative(from, to);
-        }
-
-    #else
         #include <experimental/filesystem>
         namespace fs = std::experimental::filesystem;
 

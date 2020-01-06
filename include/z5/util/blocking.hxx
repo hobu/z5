@@ -16,7 +16,7 @@ namespace util {
         }
 
         // empty constructor, leaves things uninitialized !
-        // only implemented to allow having as member that is 
+        // only implemented to allow having as member that is
         // not assigned in initializer list, but needs
         Blocking(){}
 
@@ -207,7 +207,7 @@ namespace util {
             }
 
             // check block dimensions
-            for(int d = 0; d < shape_.size(); ++d) {
+            for(size_t d = 0; d < shape_.size(); ++d) {
                 if(blockCoordinate[d] >= blocksPerDimension_[d]) {
                     return false;
                 }
@@ -220,7 +220,7 @@ namespace util {
             const unsigned ndim = shape_.size();
             blocksPerDimension_.resize(ndim);
 
-            for(int d = 0; d < ndim; ++d) {
+            for(size_t d = 0; d < ndim; ++d) {
                 blocksPerDimension_[d] = shape_[d] / blockShape_[d] + (shape_[d] % blockShape_[d] == 0 ? 0 : 1);
             }
             numberOfBlocks_ = std::accumulate(blocksPerDimension_.begin(),
